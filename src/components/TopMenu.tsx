@@ -1,7 +1,7 @@
 import Image from "next/image";
 import TopMenuItem from "./TopMenuItem";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/libs/authOptions";
 import Link from "next/link";
 
 export default async function TopMenu() {
@@ -21,10 +21,9 @@ export default async function TopMenu() {
         </Link>
       )}
 
-      {/* SPACER */}
       <div className="flex-1" />
 
-      {/* FAR RIGHT: Booking then Logo */}
+      {/* FAR RIGHT: Booking + Logo */}
       <TopMenuItem title="Booking" pageRef="/booking" />
       <Image
         src="/img/logo.png"
@@ -33,7 +32,6 @@ export default async function TopMenu() {
         height={40}
         className="ml-2 object-contain"
       />
-
     </div>
   );
 }
